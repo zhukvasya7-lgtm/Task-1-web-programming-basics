@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Изменяем кириллицу на латиницу по клику+DOM_JS. Считываем информацию из DOM</title>
+    <style>
+        :root {
+            color-scheme: dark;
+            --gold: #e5c46a;
+            --text: #f7f5ef;
+            --muted: #c5c1b7;
+            --panel: rgba(20, 19, 16, 0.88);
+            --line: rgba(255, 255, 255, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            padding: 24px;
+            color: #000;
+            font-family: Arial, sans-serif;
+
+            background:
+                linear-gradient(rgba(10, 10, 10, 0.55), rgba(10, 10, 10, 0.78)),
+                url("fon.jpg") center / cover fixed;
+        }
+
+
+        page {
+            width: min(1100px, 100%);
+            margin: 0 auto;
+            display: block;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 0 auto 36px;
+            padding: 12px;
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        nav a {
+            padding: 11px 16px;
+            color: var(--text);
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 9px;
+            transition: color 0.2s, background 0.2s;
+        }
+
+        nav a:hover,
+        nav a:focus-visible {
+            color: #171510;
+            background: var(--gold);
+            outline: none;
+        }
+
+        nav a.active {
+            color: #171510;
+            background: var(--gold);
+            outline: none;
+        }
+
+        header {
+            margin-bottom: 26px;
+            text-align: center;
+        }
+
+        .passport-container {
+            position: relative;
+            width: 400px;
+            height: 550px;
+            margin: 0 auto 20px;
+            background-image: url(pasport_shablon.png);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+
+        .passport-container div {
+            position: absolute;
+            color: #000;
+            font-weight: bold;
+        }
+
+
+        .passgivenpl { left: 100px; top: 40px; }
+        .passgiventime { left: 80px; top: 120px; }
+        .department_code { left: 250px; top: 120px; }
+        .fio { left: 178px; top: 300px; }
+        .name { left: 178px; top: 340px; }
+        .s_name { left: 176px; top: 360px; }
+        .data_b { left: 150px; top: 380px; }
+        .img { left: 15px; top: 380px; }
+        .b_place { left: 179px; top: 399px; }
+        .img {left: 33px; top: 330px;}
+
+        .btn-wrapper {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            cursor: pointer;
+            background: var(--gold);
+            color: #171510;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .form-container {
+            color: var(--text);
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        #contacts {
+            color: var(--gold);
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <nav class="menu">
+            <a href="main.html">Главная</a>
+            <a href="https://www.karelgott.com/" target="_blank" rel="noopener">Сайт Карела Готта</a>
+            <a href="table.html">Таблица</a>
+            <a href="forms.html">Форма</a>
+            <a href="Изменяем%20кириллицу%20на%20латиницу%20по%20клику.html" class="active">Изменяем кириллицу на латиницу по клику</a>
+            <a href="task.html">Алгоритмическая задача</a>
+            <a href="task.html"><img src="lamp.jpg" alt="Алгоритмическая задача" width="100"></a>
+            <a href="#contacts">Перейти к контактам</a>
+        </nav>
+    </div>
+</header>
+
+
+<div class="passport-container">
+    <div class="passgivenpl" id="passgivenpl">УФМС РОССИИ ПО ГОР. МОСКВЕ<br>ПО РАЙОНУ x</div>
+    <div class="passgiventime" id="passgiventime">29.12.2016</div>
+    <div class="department_code" id="department_code">770-064</div>
+    <div class="fio" id="fio">Жукова</div>
+    <div class="name" id="name">Василиса</div>
+    <div class="s_name" id="s_name">Алексеевна</div>
+    <div class="data_b" id="data_b">Жен &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; 03.10.2007</div>
+    <div class="img"><img src="pass.jpg" height="120" width="100" alt="Карел Готт" title="Карел Готт"></div>
+    <div class="b_place" id="b_place">г. Москва</div>
+</div>
+<a id="#top">
+<div class="btn-wrapper">
+    <button class="btn" id="change">Перевести на English</button>
+</div>
+
+<div class="form-container">
+    <img src="DOM_JS.bmp" alt="DOM_JS" title="DOM_JS">
+    <!-- Подключение внешнего JavaScript файла -->
+    <script src="change.js"></script>
+    <h2 id="contacts">Наши контакты</h2>
+    123123@mail.ru
+</div>
+<a href="#top" target="_self">Наверх</a>
+</body>
+</html>
