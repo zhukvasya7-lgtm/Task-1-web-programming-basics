@@ -2,4 +2,5 @@
 Краткое описание: создание сайта на основе HTML и JS.
 ## Демонстрация работа
 Для демонстрации работы сайта перейди по ссылке ниже
-https://zhukvasya7-lgtm.github.io/Task-1-web-programming-basics/task1/main/
+https://zhukvasya7-lgtm.github.io/Task-1-web-programming-basics/task1/main
+https://zhukvasya7-lgtm.github.io/Task-1-web-programming-basics/task1/main
