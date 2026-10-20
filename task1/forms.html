@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Тест на эрудицию</title>
+
+    <style>
+
+           :root {
+            color-scheme: dark;
+            --gold: #958530;
+            --text: #f7f5ef;
+            --muted: #c5c1b7;
+            --panel: rgba(20, 19, 16, 0.88);
+            --line: rgba(255, 255, 255, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            padding: 24px;
+            color: var(--text);
+            font-family: Arial, sans-serif;
+            background:
+                linear-gradient(rgba(10, 10, 10, 0.55), rgba(10, 10, 10, 0.78)),
+                url("карел.webp") center / cover fixed;
+        }
+
+        page {
+            width: min(1100px, 100%);
+            margin: 0 auto;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 0 auto 36px;
+            padding: 12px;
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        nav a {
+            padding: 11px 16px;
+            color: var(--text);
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 9px;
+            transition: color 0.2s, background 0.2s;
+        }
+
+        nav a:hover,
+        nav a:focus-visible {
+            color: #171510;
+            background: var(--gold);
+            outline: none;
+        }
+        nav a.active {
+    color: #171510;
+    background: var(--gold);
+    outline: none;
+}
+
+        header {
+            margin-bottom: 26px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0 0 10px;
+            color: var(--gold);
+            font-size: clamp(28px, 5vw, 46px);
+            line-height: 1.15;
+            text-shadow: 0 3px 14px rgba(0, 0, 0, 0.8);
+        }
+
+        .shadow-text {
+            text-align: center;
+            color: #ffd700;
+            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000,
+                         -1px 1px 0 #000, 1px 1px 0 #000;
+        }
+
+        .form-container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        a {
+            color: #ffd700;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+        }
+
+        .btn-check {
+            background-color: #ffd700;
+            font-weight: bold;
+        }
+
+        .btn-submit {
+            background-color: #4caf50;
+            color: white;
+        }
+
+        .btn-submit:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        #result {
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #ffd700;
+        }
+
+        .correct {
+            color: #8fff8f;
+        }
+
+        .incorrect {
+            color: #ff9999;
+        }
+    </style>
+</head>
+<body>
+<nav>
+        <td>
+           <tr> <a href="main.html">Главная</a><tr>
+            <a href="https://www.karelgott.com/" target="_blank" rel="noopener">Сайт Карела Готта</a>
+            <a href="table.html">Таблица</a>
+            <a href="forms.html"class="active">Форма</a>
+            <a href="Изменяем%20кириллицу%20на%20латиницу%20по%20клику.html">Изменяем кириллицу на латиницу по клику</a>
+            <a href="task.html">Алгоритмическая задача</a>
+            <a href="task.html"> <img src="lamp.jpg" alt="Алгоритмическая задача" width="100"></a>
+            <a href="#contacts">Перейти к контактам</a>
+
+        </td>
+    </nav>
+<a id="#top">
+<h1 class="shadow-text">Тест на эрудицию</h1>
+<h2 class="shadow-text">
+    Перед тестом рекомендуем прочитать биографию Карела Готта на его сайте
+</h2>
+
+<div class="form-container">
+
+    <form action="https://www.bing.com" id="quizForm" method="get" target="_blank">
+        <input type="hidden" name="q">
+
+        <h3>Личные данные</h3>
+        <p>Введите свои личные данные:</p>
+
+        <p>Фамилия:
+            <input type="text" name="last_name" value="Жукова" required>
+        </p>
+
+        <p>Имя:
+            <input type="text" name="name" value="Василиса" required>
+        </p>
+
+           <label for="group">Номер учебной группы:</label>
+<select name="group" id="group" required>
+    <option value="" disabled selected style="display:none;">Выберите группу</option>
+    <option value="БФИЛЛ251">БФИЛЛ251</option>
+    <option value="БФИЛЛ252">БФИЛЛ252</option>
+    <option value="БФИЛЛ253">БФИЛЛ253</option>
+</select>
+
+        <p>Электронная почта:
+            <input type="text" name="name" value="@mail.ru" required>
+        </p>
+
+
+        <p>Номер мобильного телефона:
+            <input
+                type="tel"
+                name="phone"
+                pattern="8-[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                placeholder="8-999-111-2233"
+                required
+            >
+        </p>
+
+        <fieldset>
+            <label for="sendDate">Дата отправления задания:</label>
+            <input type="date" id="sendDate" name="sendDate" required>
+        </fieldset>
+
+        <label for="password">Придумайте пароль:</label>
+  <input type="password" id="password" name="password" required>
+
+        <label for="age">Возраст:</label>
+  <input type="number" id="age" name="age" min="4" max="100" required>
+
+        <hr>
+
+        <h3>Вопросы теста</h3>
+        <ol>
+            <li class="question-block" data-correct="Чехия (Чехословакия)">
+                В какой стране родился Карел Готт?
+                <ul>
+                    <li><label><input type="radio" name="q1" value="Чехия (Чехословакия)"> Чехия (Чехословакия)</label></li>
+                    <li><label><input type="radio" name="q1" value="Германия"> Германия</label></li>
+                    <li><label><input type="radio" name="q1" value="Польша"> Польша</label></li>
+                </ul>
+            </li>
+
+            <li class="question-block" data-correct="14 июля 1939">
+                Когда родился Карел Готт?
+                <ul>
+                    <li><label><input type="radio" name="q2" value="1 октября 1940"> 1 октября 1940</label></li>
+                    <li><label><input type="radio" name="q2" value="14 июля 1939"> 14 июля 1939</label></li>
+                    <li><label><input type="radio" name="q2" value="25 декабря 1948"> 25 декабря 1948</label></li>
+                </ul>
+            </li>
+
+            <li class="question-block" data-correct="Пльзень">
+                В каком городе родился Карел Готт?
+                <ul>
+                    <li><label><input type="radio" name="q3" value="Пльзень"> Пльзень</label></li>
+                    <li><label><input type="radio" name="q3" value="Прага"> Прага</label></li>
+                    <li><label><input type="radio" name="q3" value="Брно"> Брно</label></li>
+                </ul>
+            </li>
+
+            <li class="question-block" data-correct="художником">
+                Кем хотел стать Карел Готт в детстве?
+                <ul>
+                    <li><label><input type="radio" name="q4" value="певцом"> певцом</label></li>
+                    <li><label><input type="radio" name="q4" value="писателем"> писателем</label></li>
+                    <li><label><input type="radio" name="q4" value="художником"> художником</label></li>
+                </ul>
+            </li>
+
+            <li class="question-block" data-correct="электрик по трамвайному оборудованию">
+                Кем первоначально работал Карел Готт?
+                <ul>
+                    <li><label><input type="radio" name="q5" value="уборщик"> уборщиком</label></li>
+                    <li><label><input type="radio" name="q5" value="электрик по трамвайному оборудованию"> электриком по трамвайному оборудованию</label></li>
+                    <li><label><input type="radio" name="q5" value="студент"> студентом</label></li>
+                </ul>
+            </li>
+
+            <li class="question-block"
+                data-correct="немецкий|французский|итальянский|чешский|русский|английский">
+                Какие языки знал Карел Готт? Выберите все подходящие варианты.
+                <ul>
+                    <li><label><input type="checkbox" name="q6" value="немецкий"> немецкий</label></li>
+                    <li><label><input type="checkbox" name="q6" value="французский"> французский</label></li>
+                    <li><label><input type="checkbox" name="q6" value="итальянский"> итальянский</label></li>
+                    <li><label><input type="checkbox" name="q6" value="чешский"> чешский</label></li>
+                    <li><label><input type="checkbox" name="q6" value="русский"> русский</label></li>
+                    <li><label><input type="checkbox" name="q6" value="английский"> английский</label></li>
+                    <li><label><input type="checkbox" name="q6" value="испанский"> испанский</label></li>
+                </ul>
+            </li>
+        </ol>
+
+        <div id="result" aria-live="polite"></div>
+
+        <div style="text-align: center; margin-top: 20px;">
+            <button type="button" id="checkBtn" class="btn-check">Проверить</button>
+            <button type="submit" id="submitBtn" class="btn-submit" disabled>
+                Отправить форму
+            </button>
+        </div>
+    </form>
+</div>
+<script src="script.js" defer></script>
+<h2 id="contacts">Наши контакты</h2>
+123123@mail.ru
+<a href="#top" target="_self">Наверх</a>
+</body>
+</html>

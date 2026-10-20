@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#171510">
+    <title>Кавер-версии Карела Готта</title>
+
+    <style>
+        :root {
+            color-scheme: dark;
+            --gold: #e5c46a;
+            --text: #f7f5ef;
+            --muted: #c5c1b7;
+            --panel: rgba(20, 19, 16, 0.88);
+            --line: rgba(255, 255, 255, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            padding: 24px;
+            color: var(--text);
+            font-family: Arial, sans-serif;
+            background:
+                linear-gradient(rgba(10, 10, 10, 0.55), rgba(10, 10, 10, 0.78)),
+                url("kar.jpg") center / cover fixed;
+        }
+
+        page {
+            width: min(1100px, 100%);
+            margin: 0 auto;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 0 auto 36px;
+            padding: 12px;
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        nav a {
+            padding: 11px 16px;
+            color: var(--text);
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 9px;
+            transition: color 0.2s, background 0.2s;
+        }
+
+        nav a:hover,
+        nav a:focus-visible {
+            color: #171510;
+            background: var(--gold);
+            outline: none;
+        }
+        nav a.active {
+    color: #171510;
+    background: var(--gold);
+    outline: none;
+}
+
+        header {
+            margin-bottom: 26px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0 0 10px;
+            color: var(--gold);
+            font-size: clamp(28px, 5vw, 46px);
+            line-height: 1.15;
+            text-shadow: 0 3px 14px rgba(0, 0, 0, 0.8);
+        }
+
+        .intro {
+            margin: 0;
+            color: #fff;
+            font-size: 16px;
+            text-shadow: 0 2px 8px #000;
+        }
+
+        .table-card {
+            overflow: hidden;
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
+        }
+
+        .table-tools {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            padding: 16px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .table-tools label {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .table-bg {
+  background-image: url("fon table.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+        .table-scroll table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #333;
+}
+
+.table-scroll th,
+.table-scroll td {
+    border: 1px solid #333;
+    padding: 8px;
+}
+
+        #search {
+            width: min(320px, 100%);
+            padding: 11px 13px;
+            color: var(--text);
+            font: inherit;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 9px;
+        }
+
+        #search::placeholder {
+            color: #aaa69d;
+        }
+
+        #search:focus {
+            border-color: var(--gold);
+            outline: 2px solid rgba(229, 196, 106, 0.25);
+        }
+
+        .table-scroll {
+            overflow-x: auto;
+        }
+
+        table {
+    width: 100%;
+    min-width: 720px;
+    border-collapse: collapse;
+    text-align: left;
+    background-image:
+        linear-gradient(rgba(10, 10, 10, 0.55), rgba(10, 10, 10, 0.78)),
+        url("fon table.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+        th,
+        td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--line);
+            vertical-align: top;
+        }
+
+        th {
+            position: sticky;
+            top: 0;
+            color: var(--gold);
+            font-size: 13px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            background: rgba(10, 10, 10, 0.96);
+        }
+
+        td {
+            color: #f3f1ec;
+            line-height: 1.45;
+        }
+
+        tbody tr {
+            transition: background 0.2s;
+        }
+
+        tbody tr:hover {
+            background: rgba(229, 196, 106, 0.1);
+        }
+
+        tbody tr:last-child td {
+            border-bottom: 0;
+        }
+
+        .cover-title {
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .data-note {
+            margin: 16px 4px 0;
+            color: #fff;
+            font-size: 14px;
+            font-style: italic;
+            text-shadow: 0 1px 5px #000;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 14px;
+                background-attachment: scroll;
+            }
+
+            nav {
+                margin-bottom: 28px;
+            }
+
+            nav a {
+                padding: 10px 12px;
+                font-size: 14px;
+            }
+
+            nav a:hover,
+            nav a.active {
+                color: #171717;
+                background: var(--gold);
+            }
+
+            .table-tools {
+                align-items: stretch;
+                flex-direction: column;
+            }
+
+            #search {
+                width: 100%;
+            }
+
+            th,
+            td {
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<header>
+        <div class="container">
+           <nav aria-label="Основная навигация">
+           <a href="main.html">Главная</a>
+        <a href="https://www.karelgott.com/" target="_blank" rel="noopener">Сайт Карела Готта</a>
+        <a href="table.html" class="active">Таблица</a>
+        <a href="forms.html">Форма</a>
+               <a href="Изменяем%20кириллицу%20на%20латиницу%20по%20клику.html">Изменяем кириллицу на латиницу по клику</a>
+        <a href="task.html">Алгоритмическая задача</a>
+        <a href="task.html"> <img src="lamp.jpg" alt="Алгоритмическая задача" width="100"></a>
+        <a href="#contacts">Перейти к контактам</a>
+        </nav>
+        </div>
+</header>
+<a id="#top">
+
+        <header class="main">
+            <h1>Известные кавер-версии в исполнении Карела Готта</h1>
+            <p class="intro">Подборка песен и их оригинальных версий</p>
+        </header>
+
+        <main>
+            <section class="table-card" aria-label="Список кавер-версий">
+                <div class="table-tools">
+                    <label for="search">Найти песню, исполнителя или год</label>
+                    <input
+                        id="search"
+                        type="search"
+                        placeholder="Например, Beatles или 1975"
+                        autocomplete="off"
+                    >
+                </div>
+
+                <div class="table-scroll">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th scope="col">Название кавера (Карел Готт)</th>
+                            <th scope="col">Оригинальное название</th>
+                            <th scope="col">Оригинальный исполнитель / автор</th>
+                            <th scope="col">Год кавера</th>
+                            <th scope="col">Дополнительный материал</th>
+                        </tr>
+                        </thead>
+                        <tbody id="songs">
+                        <tr>
+                            <td class="cover-title">Moskau bei Nacht</td>
+                            <td>Подмосковные вечера</td>
+                            <td>Василий Соловьёв-Седой и Михаил Матусовский</td>
+                            <td>1960-е</td>
+                            <td><a href="https://www.youtube.com/watch?v=ZNfOFBYr9wI" target="_blank">Послушать
+                                песню</a>
+                            <td>
+                        </tr>
+                        <tr>
+                            <td class="cover-title">V máji</td>
+                            <td>Il Mondo</td>
+                            <td>Jimmy Fontana</td>
+                            <td>1966</td>
+                            <td><a href="https://www.youtube.com/watch?v=-lfHRkjZDHc" target="_blank">Послушать
+                                песню</a></td>
+                        </tr>
+                        <tr>
+                            <td class="cover-title">Blueberry Hill</td>
+                            <td>Blueberry Hill</td>
+                            <td>Fats Domino</td>
+                            <td>1967</td>
+                            <td><a href="https://vkvideo.ru/video-222189940_456241216?t=0s" target="_blank">Послушать
+                                песню</a></td>
+                        </tr>
+                        <tr>
+                            <td class="cover-title">And I Love Her/Michelle</td>
+                            <td>And I Love Her/Michelle</td>
+                            <td>The Beatles</td>
+                            <td>1968</td>
+                            <td><a href="https://vkvideo.ru/video-222189940_456241218?t=1s" target="_blank">Послушать
+                                песню</a></td>
+                        </tr>
+                        <tr>
+                            <td class="cover-title">Rot Und Schwarz</td>
+                            <td>Paint It, Black</td>
+                            <td>The Rolling Stones</td>
+                            <td>1969</td>
+                            <td><a href="https://www.yandex.com.tr/video/preview/18230025788241621875?q_source=title"
+                                   target="_blank">Послушать песню</a></td>
+                        </tr>
+                        <tr>
+                            <td class="cover-title">Když jsem já byl tenkrát kluk</td>
+                            <td>Yesterday When I Was Young</td>
+                            <td>Charles Aznavour</td>
+                            <td>1971</td>
+                            <td><a href="https://vkvideo.ru/video46813059_456239837" target="_blank">Послушать песню</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="cover-title">Manchmal</td>
+                            <td>Something</td>
+                            <td>The Beatles</td>
+                            <td>1971</td>
+                            <td><a href="https://m.vkvideo.ru/video-222189940_456241222" target="_blank">Послушать
+                                песню</a></td>
+                        </tr>
+                        <tr>
+                            <td class="cover-title">Hol' die Welt in dein Haus</td>
+                            <td>Turn Your Radio On</td>
+                            <td>Ray Stevens</td>
+                            <td>1972</td>
+                            <td><a href="https://www.youtube.com/watch?v=3kRTjzKY1CY" target="_blank">Послушать
+                                песню</a></td>
+                        </tr>
+                        <tr>
+                            <td class="cover-title">Měl jsem rád a mám</td>
+                            <td>Soleado</td>
+                            <td>Ciro Dammicco</td>
+                            <td>1975</td>
+                            <td><a href="https://yandex.com.tr/video/preview/13469341043999698409?q_source=title"
+                                   target="_blank">Послушать песню</a></td>
+                        </tr>
+                        <tr>
+                            <td class="cover-title">Je jaká je</td>
+                            <td>Sereno è</td>
+                            <td>Drupi</td>
+                            <td>1975</td>
+                            <td><a href="https://vkvideo.ru/video-63649370_456239627?t=0s" target="_blank">Послушать
+                                песню</a></td>
+                        </tr>
+                        <tr>
+                            <td class="cover-title">Kam tenkrát šel můj bratr Jan/Mein letztes Lied</td>
+                            <td>All by Myself</td>
+                            <td>Eric Carmen</td>
+                            <td>1978/2009</td>
+                            <td><a href="https://vkvideo.ru/video135576020_456239220?pl=135576020_3" target="_blank">Послушать
+                                песню на чешском</a><br><a href="https://www.youtube.com/watch?v=qYCnpEkttkQ"
+                                                           target="_blank">Послушать песню на немецком</a></td>
+                        </tr>
+                        <tr>
+                            <td class="cover-title">Cesta rájem</td>
+                            <td>Crying in the Chapel</td>
+                            <td>Elvis Presley (originally recorded by Darrell Glenn)</td>
+                            <td>1978</td>
+                            <td><a href="https://www.youtube.com/watch?v=z5lpf3OnU3E" target="_blank">Послушать
+                                песню</a></td>
+                        </tr>
+                        <tr>
+                            <td class="cover-title">C'est la vie</td>
+                            <td>You Never Can Tell</td>
+                            <td>Chuck Berry</td>
+                            <td>1980</td>
+                            <td><a href="https://www.youtube.com/watch?v=giFE549OIzk" target="_blank">Послушать
+                                песню</a></td>
+                        </tr>
+                        <tr>
+                            <td class="cover-title">Když Milenky Pláčou</td>
+                            <td>Annie's Song</td>
+                            <td>John Denver</td>
+                            <td>1982</td>
+                            <td><a href="https://www.youtube.com/watch?v=ABPEgP2MWF4" target="_blank">Послушать
+                                песню</a></td>
+                        </tr>
+                        <tr>
+                            <td class="cover-title">Mein Herz wird fliegen</td>
+                            <td>Hilda</td>
+                            <td>Rob de Nijs</td>
+                            <td>1986</td>
+                            <td><a href="https://vkvideo.ru/video-222189940_456240804" target="_blank">Послушать
+                                песню</a></td>
+                        </tr>
+                        <tr>
+                            <td class="cover-title">Mám styl Čendy</td>
+                            <td>I'm Still Standing</td>
+                            <td>Elton John</td>
+                            <td>1984</td>
+                            <td><a href="https://www.youtube.com/watch?v=DrQMROGD-EE" target="_blank">Послушать
+                                песню</a></td>
+                        </tr>
+                        <tr>
+                            <td class="cover-title">Prašná cestička</td>
+                            <td>Песня Ивана</td>
+                            <td>Из советского фильма-сказки «Морозко»</td>
+                            <td>1998</td>
+                            <td><a href="https://rutube.ru/video/9644c161d8f760144960c2cb41de72c4/" target="_blank">Послушать
+                                песню</a></td>
+                        </tr>
+                        <tr>
+                            <td class="cover-title">Für Immer Jung /Být stále Mlád</td>
+                            <td>Forever Young</td>
+                            <td>Alphaville</td>
+                            <td>2000/2007</td>
+                            <td><img src="alfa.jpeg" alt="Карел Готт и Alphaville" title="Карел Готт и Alphaville"
+                                     width="100"><br><a href="https://vkvideo.ru/video1568322_456239146"
+                                                        target="_blank">Послушать песню</a><br><a
+                                    href="https://ok.ru/video/7339123149346">Послушать на чешском</a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <p class="data-note">*Указанные данные могут быть неточными.</p>
+        </main>
+    </div>
+    <script src="search.js" defer></script>
+<h2 id="contacts">Наши контакты</h2>
+123123@mail.ru
+    <a href="#top" target="_self">Наверх</a>
+</body>
+</html>

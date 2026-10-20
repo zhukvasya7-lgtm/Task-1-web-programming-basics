@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Решение алгоритмической задачи</title>
+
+    <style>
+        :root {
+            color-scheme: dark;
+            --gold: #e5c46a;
+            --text: #f7f5ef;
+            --muted: #c5c1b7;
+            --panel: rgba(20, 19, 16, 0.88);
+            --line: rgba(255, 255, 255, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            padding: 24px;
+             color: #513097;
+            font-family: Arial, sans-serif;
+            background:
+                linear-gradient(rgba(10, 10, 10, 0.55), rgba(10, 10, 10, 0.78)),
+                url("fon.jpg") center / cover fixed;
+        }
+
+        page {
+            width: min(1100px, 100%);
+            margin: 0 auto;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 0 auto 36px;
+            padding: 12px;
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        nav a {
+            padding: 11px 16px;
+            color: var(--text);
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 9px;
+            transition: color 0.2s, background 0.2s;
+        }
+
+        nav a:hover,
+        nav a:focus-visible {
+            color: #171510;
+            background: var(--gold);
+            outline: none;
+        }
+        nav a.active {
+    color: #171510;
+    background: var(--gold);
+    outline: none;
+}
+
+        header {
+            margin-bottom: 26px;
+            text-align: center;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 400px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0 15px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            width: 100%;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .btn-submit {
+            background-color: #008CBA;
+        }
+
+        .btn-submit:hover {
+            background-color: #007bb5;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+            background: #eef;
+            padding: 10px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav aria-label="Основная навигация">
+        <a href="main.html">Главная</a>
+        <a href="https://www.karelgott.com/" target="_blank" rel="noopener">
+            Сайт Карела Готта
+        </a>
+        <a href="table.html">Таблица</a>
+        <a href="forms.html">Форма</a>
+        <a href="Изменяем%20кириллицу%20на%20латиницу%20по%20клику.html">
+            Изменяем кириллицу на латиницу по клику
+        </a>
+        <a href="task.html" class="active">Алгоритмическая задача</a>
+        <a href="task.html">
+            <img src="lamp.jpg" alt="Алгоритмическая задача" width="100">
+        </a>
+        <a href="#contacts">Перейти к контактам</a>
+    </nav>
+</header>
+<form action="https://www.bing.com"  id="UserEnter" name="UserEnter" target="_blank"><input type="hidden" name="q">
+    <p>1008. Имеются две ёмкости: кубическая с ребром A, цилиндрическая с высотой H и радиусом основания R. Определить,
+        можно ли заполнить жидкостью объёма M первую ёмкость, вторую, обе.</p>
+    <div class="container">
+        <h2>Проверка объема жидкости</h2>
+        <label for="sideA">Ребро куба (A):</label>
+        <input type="number" id="sideA" name="sideA" step="any" min="0" placeholder="Введите A">
+
+        <label for="heightH">Высота цилиндра (H):</label>
+        <input type="number" id="heightH" name="heightH" step="any" min="0" placeholder="Введите H">
+
+        <label for="radiusR">Радиус цилиндра (R):</label>
+        <input type="number" id="radiusR" name="radiusR" step="any" min="0" placeholder="Введите R">
+
+        <label for="volumeM">Объем жидкости (M):</label>
+        <input type="number" id="volumeM" name="volumeM" step="any" min="0" placeholder="Введите M">
+
+        <!-- Кнопка расчета -->
+        <button type="button" onclick="calculate(event)">Определить</button>
+
+        <!-- Новая кнопка отправки формы -->
+        <button type="submit" class="btn-submit">Отправить</button>
+
+        <div class="result" id="output">Результат появится здесь</div>
+    </div>
+</form>
+<script src="task.js"></script>
+    <h2 id="contacts">Наши контакты</h2>
+123123@mail.ru
+</body>
+</html>
